@@ -1,0 +1,46 @@
+﻿<Window x:Class="WpfApp6.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         xmlns:local="clr-namespace:WpfApp6.ViewModels"
+        Title="Construction Calculator" Height="400" Width="600">
+    <Window.DataContext>
+        <local:FoundationViewModel />
+    </Window.DataContext>
+    <Grid>
+        <TabControl>
+            <!-- Ленточный фундамент -->
+            <TabItem Header="Ленточный фундамент">
+                <StackPanel Margin="20">
+                    <Label Content="Длина фундамента L (м):" />
+                    <TextBox Text="{Binding Length}" Width="200" Margin="10" />
+
+                    <Label Content="Ширина фундамента B (м):" />
+                    <TextBox Text="{Binding Width}" Width="200" Margin="10" />
+
+                    <Label Content="Высота фундамента H (м):" />
+                    <TextBox Text="{Binding Height}" Width="200" Margin="10" />
+
+                    <Label Content="Цена за 1 куб.м. бетона (руб.):" />
+                    <TextBox Text="{Binding ConcretePrice}" Width="200" Margin="10" />
+
+                    <Label Content="Цена за 1 кг арматуры (руб.):" />
+                    <TextBox Text="{Binding ReinforcementPrice}" Width="200" Margin="10" />
+
+                    <Label Content="Цена за 1 куб.м. песка (руб.):" />
+                    <TextBox Text="{Binding SandPrice}" Width="200" Margin="10" />
+
+                    <Label Content="Цена за 1 куб.м. щебня (руб.):" />
+                    <TextBox Text="{Binding GravelPrice}" Width="200" Margin="10" />
+
+                    <Button Content="Рассчитать" Command="{Binding CalculateCommand}" Margin="10" Width="200"/>
+
+                    <TextBlock Text="Объем: {Binding Volume, StringFormat={}{0:F2}} м³" Margin="10, 20, 0, 0"/>
+                    <TextBlock Text="Масса бетона: {Binding Mass, StringFormat={}{0:F2}} кг" Margin="10, 20, 0, 0"/>
+                    <TextBlock Text="Общая стоимость всех материалов: {Binding TotalCost, StringFormat={}{0:F2}} руб." Margin="10, 20, 0, 0"/>
+                </StackPanel>
+            </TabItem>
+
+           
+        </TabControl>
+    </Grid>
+</Window>
